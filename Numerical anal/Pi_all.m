@@ -113,3 +113,21 @@ xlabel('迭代次數','FontSize',14)
 ylabel('數列5 後項誤差/前項誤差','FontSize',14)
 grid on
 hold off
+
+%try to use alpha/n to estimate n1
+y=zeros(n,1);
+for i=1:n
+    y(i)=1/i;
+end
+
+alpha=((1:n)*n1)^(1/n);
+y=alpha*y;
+fprintf("%2.6e",alpha);
+plot((start:dn:n),log(n1(start:dn:n))/log(10),'b-.');
+hold on
+plot((start:dn:n),log(y(start:dn:n))/log(10),'y-+');
+legend({"n1","1/n"})
+xlabel('迭代次數','FontSize',14)
+ylabel('與pi的誤差值(取log以10為底)','FontSize',14)
+grid on
+hold off

@@ -3,24 +3,24 @@ n=100000;%指定迭代次數
 start=1;%畫圖時開始的次數
 dn=floor(n/200);%密度
 a1=zeros(n,1);
-n1=zeros(n,1);
-n2=zeros(n,1);
+n1=ones(n,1);
+n2=ones(n,1);
 err1=zeros(n-1,1);
 err2=zeros(n-1,1);
 for i=1:n
-    a1(i)=6/i^2;   
+    a1(i)=(4*i^2)/(4*i^2-1);   
 end
 
 for i=1:n
     for j=1:i
-        n1(i)=n1(i)+a1(j);
+        n1(i)=n1(i)*a1(j);
     end
     for j=i:-1:1
-        n2(i)=n2(i)+a1(j);
+        n2(i)=n2(i)*a1(j);
     end
-    n1(i)=sqrt(n1(i));
-    n2(i)=sqrt(n2(i));
 end
+n1=2*n1;
+n2=2*n2;
 
 
 pis=zeros(n,1);
@@ -37,6 +37,6 @@ hold on
 plot((start:dn:n),log(n2(start:dn:n))/log(10),'b-.','LineWidth',2);
 legend({"正加","反加"})
 xlabel('迭代次數','FontSize',14)
-ylabel('nn1','FontSize',14)
+ylabel('nn3','FontSize',14)
 grid on
 hold off
