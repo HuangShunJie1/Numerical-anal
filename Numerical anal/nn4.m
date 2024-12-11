@@ -43,8 +43,8 @@ n2=abs(n2-pis);
 figure(1)
 plot((start:dn:n),log(n1(1:ddn))/log(10),'r-x','LineWidth',2);
 hold on
-plot((start:dn:n),log(n1pn(1:ddn))/log(10),'b-.','LineWidth',2);
-plot((start:dn:n),log(n2(1:ddn))/log(10),'y-.','LineWidth',2);
+plot((start:dn:n),log(n2(1:ddn))/log(10),'b-.','LineWidth',2);
+plot((start:dn:n),log(n1pn(1:ddn))/log(10),'y-.','LineWidth',2);
 legend({"正加","反加","分開加"})
 xlabel('迭代次數','FontSize',14)
 ylabel('error','FontSize',14)
