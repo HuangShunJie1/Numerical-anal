@@ -1,41 +1,46 @@
 clear;
-n=100000;%指定迭代次數
+n=10000000000;%指定迭代次數
+ddn=2;
 start=1;%畫圖時開始的次數
-dn=floor(n/200);%密度
-a1=zeros(n,1);
-n1=ones(n,1);
-n2=ones(n,1);
-err1=zeros(n-1,1);
-err2=zeros(n-1,1);
-for i=1:n
-    a1(i)=(4*i^2)/(4*i^2-1);   
-end
+dn=floor(n/ddn);%密度
+n1=ones(ddn,1);
+n2=ones(ddn,1);
+n1b=ones(ddn,1);
+n1s=ones(ddn,1);
+n1bs=ones(ddn,1);
+rrrrr=(start:dn:n);
 
-for i=1:n
-    for j=1:i
-        n1(i)=n1(i)*a1(j);
+for i=1:ddn
+    for j=1:rrrrr(i)
+        n1(i)=n1(i)*(4*j^2)/(4*j^2-1);
+        n1s(i)=n1s(i)*2*j/(2*j+1);
+        n1b(i)=n1b(i)*2*j/(2*j-1);
     end
-    for j=i:-1:1
-        n2(i)=n2(i)*a1(j);
+    for j=rrrrr(i):-1:1
+        n2(i)=n2(i)*(4*j^2)/(4*j^2-1);
     end
+    n1bs(i)=n1s(i)*n1b(i);
 end
 n1=2*n1;
 n2=2*n2;
+n1bs=2*n1bs;
 
 
-pis=zeros(n,1);
-for i=1:n
+pis=zeros(ddn,1);
+for i=1:ddn
     pis(i)=pi;
 end
 
 n1=abs(n1-pis);
 n2=abs(n2-pis);
+n1bs=abs(n1bs-pis);
 
 figure(1)
-plot((start:dn:n),log(n1(start:dn:n))/log(10),'r-x','LineWidth',2);
+plot(log(start:dn:n)/log(10),log(n1(1:ddn))/log(10),'r-x','LineWidth',2);
 hold on
-plot((start:dn:n),log(n2(start:dn:n))/log(10),'b-.','LineWidth',2);
-legend({"正加","反加"})
+plot(log(start:dn:n)/log(10),log(n2(1:ddn))/log(10),'b-o','LineWidth',2);
+plot(log(start:dn:n)/log(10),log(n1bs(1:ddn))/log(10),'y-.','LineWidth',2);
+legend({"正乘","反乘","分開乘"})
 xlabel('迭代次數','FontSize',14)
 ylabel('nn3','FontSize',14)
 grid on
