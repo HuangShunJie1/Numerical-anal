@@ -22,8 +22,8 @@ n2=abs(n2-pis);
 figure(1)
 plot(log(1:n)/log(10),log(n2)/log(10),'r-x','LineWidth',2);
 hold on
-plot(log(1:n)/log(10),log(nnnn2)/log(10),'black-.','LineWidth',2);
-legend({"n2","pi^(1/2)/(2*i^(1/2)*2^i)"})
+plot(log(1:n)/log(10),log(nnnn2)/log(10),'black-x','LineWidth',2);
+legend({"n3","pi^(1/2)/(2*i^(1/2)*2^i)"})
 xlabel('log N','FontSize',14)
 ylabel('log error','FontSize',14)
 grid on

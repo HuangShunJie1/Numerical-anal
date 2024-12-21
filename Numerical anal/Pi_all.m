@@ -72,9 +72,9 @@ figure(1)
 %legend([h1(1) h2(1) h3(1) h4(1) h5(1)],{"n1","n2","n3","n4","n5"})
 plot((start:dn:n),log(n1(start:dn:n))/log(10),'b-.');
 hold on
-plot((start:dn:n),log(n3(start:dn:n))/log(10),'y-+');
+%plot((start:dn:n),log(n3(start:dn:n))/log(10),'y-+');
 plot((start:dn:n),log(n4(start:dn:n))/log(10),'g-x');
-legend({"n1","n3","n4"})
+legend({"n1","n2"})
 xlabel('迭代次數','FontSize',14)
 ylabel('與pi的誤差值(取log以10為底)','FontSize',14)
 grid on
@@ -83,34 +83,34 @@ endn2=45;%最後一項
 endn5=8;
 
 figure(2)
-plot((1:endn2),log(n2(1:endn2))/log(10),'r-x','LineWidth',2);
-legend({"n2"})
+plot((1:endn2),log(n2(1:endn2))/log(10),'b-x','LineWidth',2);
+legend({"n3"})
 xlabel('迭代次數','FontSize',14)
-ylabel('數列2與pi的誤差值(取log以10為底)','FontSize',14)
+ylabel('數列3與pi的誤差值(取log以10為底)','FontSize',14)
 grid on
 hold off
 
 figure(3)
-plot((1:endn5),log(n5(1:endn5))/log(10),'black-x','LineWidth',2);
-legend({"n5"})
+plot((1:endn5),log(n5(1:endn5))/log(10),'r-x','LineWidth',2);
+legend({"n4"})
 xlabel('迭代次數','FontSize',14)
-ylabel('數列5與pi的誤差值(取log以10為底)','FontSize',14)
+ylabel('數列4與pi的誤差值(取log以10為底)','FontSize',14)
 grid on
 hold off
 
 figure(4)
-plot((1:endn2),(err2(1:endn2)),'r-x','LineWidth',2);
-legend({"n2"},'Location','southeast')
+plot((1:endn2),(err2(1:endn2)),'b-x','LineWidth',2);
+legend({"n3"},'Location','southeast')
 xlabel('迭代次數','FontSize',14)
-ylabel('數列2 後項誤差/前項誤差','FontSize',14)
+ylabel('數列3 後項誤差/前項誤差','FontSize',14)
 grid on
 hold off
 
 figure(5)
-plot((1:endn5),(err5(1:endn5)),'black-x','LineWidth',2);
-legend({"n5"},'Location','southeast')
+plot((1:endn5),(err5(1:endn5)),'r-x','LineWidth',2);
+legend({"n4"},'Location','southeast')
 xlabel('迭代次數','FontSize',14)
-ylabel('數列5 後項誤差/前項誤差','FontSize',14)
+ylabel('數列4 後項誤差/前項誤差','FontSize',14)
 grid on
 hold off
 
@@ -125,9 +125,9 @@ y=alpha*y;
 fprintf("%2.6e",alpha);
 
 figure(6)
-plot((start:dn:n),log(n1(start:dn:n))/log(10),'b-.');
+plot((start:dn:n),log(n1(start:dn:n))/log(10),'bla-x');
 hold on
-plot((start:dn:n),log(y(start:dn:n))/log(10),'y-+');
+plot((start:dn:n),log(y(start:dn:n))/log(10),'g-x');
 legend({"n1","1/n"})
 xlabel('迭代次數','FontSize',14)
 ylabel('與pi的誤差值(取log以10為底)','FontSize',14)
@@ -135,10 +135,10 @@ grid on
 hold off
 
 figure(7)
-plot((1:endn2),log(n2(1:endn2))/log(10),'r-x','LineWidth',2);
+plot((1:endn2),log(n2(1:endn2))/log(10),'b-x','LineWidth',2);
 hold on
-plot((1:endn5),log(n5(1:endn5))/log(10),'black-x','LineWidth',2);
-legend({"n2","n5"})
+plot((1:endn5),log(n5(1:endn5))/log(10),'r-x','LineWidth',2);
+legend({"n3","n4"})
 xlabel('迭代次數','FontSize',14)
 ylabel('數列與pi的誤差值(取log以10為底)','FontSize',14)
 grid on
@@ -153,13 +153,13 @@ figure(8)
 %h4=plot((start:dn:n),n4(start:dn:n),'g-o','LineWidth',2);
 %h5=plot((start:dn:n),n5(start:dn:n),'black-x','LineWidth',2);
 %legend([h1(1) h2(1) h3(1) h4(1) h5(1)],{"n1","n2","n3","n4","n5"})
-plot((start:dn:n),log(n1(start:dn:n))/log(10),'black-.');
+plot((start:dn:n),log(n1(start:dn:n))/log(10),'black-x');
 hold on
-plot((start:dn:n),log(n2(start:dn:n))/log(10),'b-.');
-plot((start:dn:n),log(n3(start:dn:n))/log(10),'black-.');
-plot((start:dn:n),log(n4(start:dn:n))/log(10),'black-.');
-plot((start:dn:n),log(n5(start:dn:n))/log(10),'r-.');
-legend({"n1","n2","n3","n4","n5"},"location","east")
+plot((start:dn:n),log(n2(start:dn:n))/log(10),'b-x');
+%plot((start:dn:n),log(n3(start:dn:n))/log(10),'black-.');
+plot((start:dn:n),log(n4(start:dn:n))/log(10),'black-x');
+plot((start:dn:n),log(n5(start:dn:n))/log(10),'r-x');
+legend({"n1","n3","n2","n4"},"location","east")
 xlabel('迭代次數','FontSize',14)
 ylabel('與pi的誤差值(取log以10為底)','FontSize',14)
 grid on
